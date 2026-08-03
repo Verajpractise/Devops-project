@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  web:
+    image: devops-project:v1
+    container_name: compose-web
+    ports:
+      - "8083:80"
+    volumes:
+      - my-volume:/data
+    networks:
+      - devops-network
+
+volumes:
+  my-volume:
+
+networks:
+  devops-network:
