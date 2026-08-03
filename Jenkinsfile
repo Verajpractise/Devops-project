@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        IMAGE_NAME = "venuyeluri/devops-project:v1"
+    }
+
     stages {
 
         stage('Checkout') {
@@ -9,9 +13,9 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                sh 'docker build -t devops-project:v1 .'
+                sh 'docker build -t $IMAGE_NAME .'
             }
         }
     }
